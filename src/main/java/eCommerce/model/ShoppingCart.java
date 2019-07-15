@@ -38,19 +38,4 @@ class ShoppingCart {
     public void setProductList(List<Product> productList) {
         this.productList = productList;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ShoppingCart that = (ShoppingCart) o;
-        return Objects.equals(cartId, that.cartId) &&
-                Objects.equals(userId, that.userId) &&
-                Objects.equals(productList, that.productList);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cartId, userId, productList);
-    }
 }
