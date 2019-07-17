@@ -13,7 +13,6 @@ class ShoppingCart {
     public ShoppingCart(String userId) {
         this.cartId = UUID.randomUUID().toString();
 
-        this.cartId = cartId;
         this.userId = userId;
         productList = new ArrayList<Product>();
     }
