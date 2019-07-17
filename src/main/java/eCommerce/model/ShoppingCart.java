@@ -6,26 +6,27 @@ import java.util.UUID;
 
 class ShoppingCart {
     private String cartId;
-    private String userId;
+    private User user;
     private List<Product> productList;
 
-    public ShoppingCart(String userId) {
+    public ShoppingCart(User user) {
         this.cartId = UUID.randomUUID().toString();
 
-        this.userId = userId;
+        this.user = user;
         productList = new ArrayList<Product>();
     }
+
 
     public String getCartId() {
         return cartId;
     }
 
-    public String getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<Product> getProductList() {
