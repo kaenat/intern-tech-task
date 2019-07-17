@@ -1,6 +1,5 @@
 package eCommerce.model;
 
-import javax.management.InstanceAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
