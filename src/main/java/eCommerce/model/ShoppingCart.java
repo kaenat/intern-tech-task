@@ -1,5 +1,6 @@
 package eCommerce.model;
 
+import javax.management.InstanceAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -36,15 +37,18 @@ class ShoppingCart {
         this.productList = productList;
     }
 
-    public void addProduct(Product p) {
-        productList.add(p);
+    public boolean addProduct(Product p) {
+        if (!productExists(p)) {
+            return productList.add(p);
+        } else
+            return false;
     }
 
-    public void removeProduct(Product p) {
-        productList.remove(p);
+    public boolean removeProduct(Product p) {
+        return productList.remove(p);
     }
 
-    public boolean productExists(Product p) {
+    private boolean productExists(Product p) {
         return productList.contains(p);
     }
 }
