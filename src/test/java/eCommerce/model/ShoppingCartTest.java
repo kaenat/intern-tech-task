@@ -12,7 +12,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ShoppingCartTest {
-    String userID;
+    User user;
 
     Product product;
     List<Product> products;
@@ -20,8 +20,8 @@ class ShoppingCartTest {
 
     @BeforeEach
     void init() {
-        userID = UUID.randomUUID().toString();
-        shoppingCart = new ShoppingCart(userID);
+        user = new User("Kaenat", "Asif");
+        shoppingCart = new ShoppingCart(user);
         products = new ArrayList<Product>();
 
         product = new Product("Apple iPhone XS", "The Greatest iPhone ever",
@@ -45,17 +45,24 @@ class ShoppingCartTest {
         products.add(product);
     }
 
+    @DisplayName("should add multiple products successfully")
+    @Test
+    public void shouldAddMultipleProductSuccessfully() {
+        shoppingCart.setProductList(products);
+        assertEquals(products, shoppingCart.getProductList());
+    }
+
     @DisplayName("should add product successfully")
     @Test
     public void shouldAddProductSuccessfully() {
-        List<Product> subList = products.subList(0, 2);
+        List<Product> subList = products.subList(0, 3);
         for (Product p : subList) {
             shoppingCart.addProduct(p);
         }
 
         List<Product> pList = shoppingCart.getProductList();
 
-        assertEquals(3, pList.size());
+        assertEquals(subList.size(), pList.size());
         assertEquals(products.get(2), pList.get(2));
     }
 
