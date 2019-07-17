@@ -43,4 +43,8 @@ class ShoppingCart {
     public void removeProduct(Product p) {
         productList.remove(p);
     }
+
+    public boolean productExists(Product p) {
+        return productList.contains(p);
+    }
 }
