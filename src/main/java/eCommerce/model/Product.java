@@ -1,18 +1,17 @@
 package eCommerce.model;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 import java.util.UUID;
 
 public class Product {
-    private String productId;
+    private String productID;
     private String name;
     private String description;
     private String picturePath;
     private BigDecimal price;
 
     public Product(String name, String description, String picturePath, BigDecimal price) {
-        this.productId = UUID.randomUUID().toString();
+        this.productID = UUID.randomUUID().toString();
 
         this.name = name;
         this.description = description;
@@ -20,8 +19,8 @@ public class Product {
         this.price = price;
     }
 
-    public String getProductId() {
-        return productId;
+    public String getProductID() {
+        return productID;
     }
 
     public String getName() {
